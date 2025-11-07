@@ -75,7 +75,7 @@ npm install
 # 3. Start the frontend app (it will open in your browser)
 npm start
 
-
+```
 
 ## API Endpoints
 
