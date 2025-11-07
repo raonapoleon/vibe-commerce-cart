@@ -8,6 +8,14 @@ The entire application is built on the MERN stack (MongoDB, Express, React, Node
 
 * **1-Minute Demo:** [https://youtu.be/RBhbYDxnZoc](https://youtu.be/RBhbYDxnZoc)
 
+##  Screenshots
+
+* Here is a look at the application's UI:
+
+| Homepage (Products) | Cart | Checkout Receipt |
+| :---: | :---: | :---: |
+| ![Homepage](https://github.com/user-attachments/assets/19b80994-35f8-4b04-8937-b560d3ad90a5) | ![Cart](https://github.com/user-attachments/assets/87e2ba54-516a-4e37-8e57-991a5e348eb3) | ![Receipt](https://github.com/user-attachments/assets/b5afda96-32b1-4d53-bd97-4d66d20a1cd5) |
+
 ---
 
 ##  Features
