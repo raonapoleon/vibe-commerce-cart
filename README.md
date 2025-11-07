@@ -76,9 +76,8 @@ npm install
 npm start
 
 
----
 
-## 📖 API Endpoints
+## API Endpoints
 
 All routes are prefixed with `/api`.
 
