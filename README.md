@@ -4,13 +4,13 @@ This project is a full-stack MERN application built for the Vibe Commerce techni
 
 The entire application is built on the MERN stack (MongoDB, Express, React, Node.js) and includes a custom-built, interactive dark theme.
 
-## 🎥 Live Demo Video
+##  Live Demo Video
 
 * **1-Minute Demo:** [https://youtu.be/RBhbYDxnZoc](https://youtu.be/RBhbYDxnZoc)
 
 ---
 
-## ✨ Features
+##  Features
 
 * **Interactive Dark Theme:** A fully custom "live" animated gradient background with a mouse-tracking spotlight effect.
 * **Modern UI/UX:** Smooth "pop-on-hover" animations for product cards, modern button styles, and responsive design for all devices.
@@ -22,7 +22,7 @@ The entire application is built on the MERN stack (MongoDB, Express, React, Node
 
 ---
 
-## 🛠️ Tech Stack
+##  Tech Stack
 
 * **Frontend:** React, React Router, Context API, Axios
 * **Backend:** Node.js, Express.js
@@ -31,7 +31,7 @@ The entire application is built on the MERN stack (MongoDB, Express, React, Node
 
 ---
 
-## 🏃‍♂️ How to Run Locally
+##  How to Run Locally
 
 To get this project running on your local machine, please follow these steps.
 
@@ -46,7 +46,7 @@ To get this project running on your local machine, please follow these steps.
 git clone [https://github.com/raonapoleon/vibe-commerce-cart.git](https://github.com/raonapoleon/vibe-commerce-cart.git)
 cd vibe-commerce-cart
 
-### Backend Setup
+Backend Setup
 
 # 1. Navigate to the backend folder
 cd backend
@@ -64,7 +64,7 @@ MONGO_URI=your_mongodb_connection_string_goes_here
 # 4. Start the backend server (it will run on http://localhost:5001)
 npm start
 
-###Frontend Setup
+Frontend Setup
 
 # 1. Navigate to the frontend folder
 cd frontend
@@ -75,7 +75,7 @@ npm install
 # 3. Start the frontend app (it will open in your browser)
 npm start
 
-## 📖 API Endpoints
+##  API Endpoints
 
 All routes are prefixed with `/api`.
 
