@@ -46,20 +46,27 @@ const Checkout = () => {
     <div className="modal-overlay">
       <div className="modal-content">
         <h3>Thank you for your order, {name}!</h3>
-        <p>Your mock receipt:</p>
-        <p>
-          <strong>Receipt ID:</strong> {receipt.receiptId}
-        </p>
-        <p>
-          <strong>Total Paid:</strong> ₹{parseFloat(receipt.total).toFixed(2)}
-        </p>
-        <p>
-          <strong>Items:</strong> {receipt.itemsPurchased}
-        </p>
-        <p>
-          <strong>Date:</strong> {new Date(receipt.timestamp).toLocaleString()}
-        </p>
-        <button onClick={closeReceipt}>Close</button>
+        
+        <div className="receipt-info">
+          <p>
+            <strong>Receipt ID:</strong>
+            <span>{receipt.receiptId}</span>
+          </p>
+          <p>
+            <strong>Items:</strong>
+            <span>{receipt.itemsPurchased}</span>
+          </p>
+          <p>
+            <strong>Date:</strong>
+            <span>{new Date(receipt.timestamp).toLocaleString()}</span>
+          </p>
+          <p className="receipt-total">
+            <strong>Total Paid:</strong>
+            <span>₹{parseFloat(receipt.total).toFixed(2)}</span>
+          </p>
+        </div>
+
+        <button onClick={closeReceipt} style={{marginTop: '20px'}}>Close</button>
       </div>
     </div>
   );

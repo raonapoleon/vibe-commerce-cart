@@ -1,4 +1,4 @@
-/* === Global Styles & "Live" Dark Background === */
+
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
 :root {
@@ -13,8 +13,6 @@
   --border-color: #343a40;
   --shadow-color: rgba(0, 0, 0, 0.4);
   --shadow-hover-color: rgba(0, 0, 0, 0.6);
-  
-  /* Default mouse positions */
   --mouse-x: 50vw;
   --mouse-y: 50vh;
 }
@@ -26,37 +24,27 @@ body {
   padding: 0;
   color: var(--text-color);
   overflow-x: hidden;
-  /* Set a static fallback background */
   background-color: var(--bg-dark-primary);
 }
 
-/* * This new pseudo-element holds the "live" background.
- * It sits behind all other content.
-*/
 body::before {
   content: '';
   position: fixed;
-  inset: 0; /* (top: 0, left: 0, right: 0, bottom: 0) */
+  inset: 0;
   z-index: -1;
-  
-  /* * THE "LIVE" & "INTERACTIVE" BACKGROUND 
-  */
   background: 
-    /* 1. Interactive Mouse Spotlight (Brighter) */
     radial-gradient(
       800px circle at var(--mouse-x) var(--mouse-y),
-      rgba(0, 123, 255, 0.15), /* Spotlight is now 50% brighter */
+      rgba(0, 123, 255, 0.15),
       transparent 40%
     ),
-    /* 2. Live Animated Gradient (More Visible) */
     linear-gradient(
       -45deg,
-      #000000,  /* Black */
-      #1e0033,  /* Dark Purple */
-      #001a33,  /* Dark Blue */
-      #000000   /* Black */
+      #000000,
+      #1e0033,
+      #001a33,
+      #000000
     );
-  
   background-size: 400% 400%;
   animation: darkGradientBG 18s ease infinite;
 }
@@ -70,6 +58,7 @@ body::before {
 h1, h2, h3, h4, h5, h6 {
   color: var(--heading-color);
   font-weight: 600;
+  letter-spacing: 0.5px; /* Checklist: Added letter spacing */
 }
 
 /* === Fade-in Animation for Pages === */
@@ -85,7 +74,7 @@ h1, h2, h3, h4, h5, h6 {
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* === Navbar === */
+/* === Navbar (Checklist Updated) === */
 .navbar {
   background-color: rgba(30, 30, 30, 0.85);
   backdrop-filter: blur(10px);
@@ -110,14 +99,23 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .navbar-logo {
-  color: var(--primary-color);
+  /* Checklist: Improved logo text */
+  background: linear-gradient(
+    90deg,
+    var(--primary-color),
+    #9333ea /* A nice purple */
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
   text-decoration: none;
   font-size: 1.8rem;
   font-weight: 700;
-  transition: color 0.3s ease;
+  transition: filter 0.3s ease;
 }
 .navbar-logo:hover {
-  color: var(--primary-hover);
+  filter: brightness(1.2);
 }
 
 .nav-menu {
@@ -136,6 +134,8 @@ h1, h2, h3, h4, h5, h6 {
   padding: 8px 16px;
   border-radius: 6px;
   transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
 }
 
 .nav-links:hover {
@@ -143,7 +143,23 @@ h1, h2, h3, h4, h5, h6 {
   color: var(--white-color);
 }
 
-/* === Product Card (with POP animation) === */
+/* Checklist: Cart indicator badge */
+.cart-indicator {
+  background-color: var(--primary-color);
+  color: var(--white-color);
+  font-size: 0.8rem;
+  font-weight: 600;
+  border-radius: 50px;
+  padding: 2px 8px;
+  margin-left: 8px;
+  transition: all 0.3s ease;
+}
+.nav-links:hover .cart-indicator {
+  background-color: var(--white-color);
+  color: var(--primary-color);
+}
+
+/* === Product Card (Checklist Updated) === */
 .product-list {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
@@ -176,13 +192,15 @@ h1, h2, h3, h4, h5, h6 {
   margin-bottom: 0;
   opacity: 0.9;
   transition: opacity 0.3s ease;
+  /* Checklist: Rounded product images */
+  border-radius: 12px 12px 0 0; 
 }
 .product-item:hover .product-image {
   opacity: 1;
 }
 
 .product-info {
-  flex-grow: 1; /* Pushes button to bottom */
+  flex-grow: 1;
 }
 
 .product-item h3 {
@@ -203,7 +221,7 @@ h1, h2, h3, h4, h5, h6 {
   margin: 0 15px 20px 15px;
 }
 
-/* === Buttons (with transitions) === */
+/* === Buttons (Checklist Updated) === */
 button {
   background-color: var(--primary-color);
   color: white;
@@ -216,13 +234,11 @@ button {
   transition: all 0.3s ease;
   transform: translateY(0);
 }
-
 button:hover {
   background-color: var(--primary-hover);
   transform: translateY(-2px);
   box-shadow: 0 4px 8px rgba(0, 123, 255, 0.3);
 }
-
 button:disabled {
   background-color: #555;
   color: #999;
@@ -231,6 +247,7 @@ button:disabled {
   box-shadow: none;
 }
 
+/* Checklist: Consistent button colors */
 .product-item > button {
   background-color: var(--success-color);
 }
@@ -239,23 +256,26 @@ button:disabled {
   box-shadow: 0 4px 8px rgba(25, 135, 84, 0.3);
 }
 
+/* Checklist: Secondary "Remove" button style */
 button.remove-btn {
-  background-color: var(--danger-color);
+  background: none;
+  border: 1px solid var(--danger-color);
+  color: var(--danger-color);
   font-size: 0.9rem;
-  padding: 8px 12px;
+  padding: 7px 11px; /* (padding - 1px border) */
 }
 button.remove-btn:hover {
-  background-color: #bb2d3b;
+  background-color: var(--danger-color);
+  color: var(--white-color);
   box-shadow: 0 4px 8px rgba(220, 53, 69, 0.3);
 }
 
-/* === Quantity Selector (Dark Mode) === */
+/* === Quantity Selector === */
 .quantity-selector {
   display: flex;
   justify-content: center;
   align-items: center;
 }
-
 .quantity-btn {
   background-color: var(--border-color);
   color: var(--text-color);
@@ -268,14 +288,12 @@ button.remove-btn:hover {
   padding: 0;
   transition: all 0.2s ease;
 }
-
 .quantity-btn:hover {
   background-color: #555;
   color: var(--white-color);
   transform: none;
   box-shadow: none;
 }
-
 .quantity-display {
   padding: 0 15px;
   font-size: 1.2rem;
@@ -297,7 +315,6 @@ button.remove-btn:hover {
   box-shadow: 0 4px 12px var(--shadow-color);
   animation: fadeIn 0.6s ease-in-out;
 }
-
 .cart-item {
   display: flex;
   justify-content: space-between;
@@ -310,13 +327,11 @@ button.remove-btn:hover {
 .cart-item:first-child {
   padding-top: 0;
 }
-
 .cart-item-controls {
   display: flex;
   align-items: center;
   gap: 20px;
 }
-
 .cart-total {
   font-size: 1.4rem;
   font-weight: 700;
@@ -325,14 +340,13 @@ button.remove-btn:hover {
   padding-top: 20px;
   border-top: 2px solid var(--text-color);
 }
-
 .cart-actions {
   display: flex;
   justify-content: flex-end;
   margin-top: 25px;
 }
 
-/* === Forms (Dark Mode) === */
+/* === Forms === */
 form {
   display: flex;
   flex-direction: column;
@@ -340,7 +354,6 @@ form {
   max-width: 500px;
   margin-top: 20px;
 }
-
 input {
   padding: 12px 15px;
   border: 1px solid var(--border-color);
@@ -351,28 +364,27 @@ input {
   background-color: #2a2a2a;
   color: var(--text-color);
 }
-
 input:focus {
   outline: none;
   border-color: var(--primary-color);
   box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.2);
 }
 
-/* === Modal (Dark Mode) === */
+/* === Modal (Checklist Updated) === */
 .modal-overlay {
   position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.8);
+  inset: 0;
+  /* Checklist: Glassy look */
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  
   display: flex;
   align-items: center;
   justify-content: center;
   z-index: 2000;
   animation: fadeIn 0.3s ease;
 }
-
 .modal-content {
   background: var(--bg-dark-secondary);
   padding: 30px 40px;
@@ -383,13 +395,90 @@ input:focus {
   animation: modalPop 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
   border: 1px solid var(--border-color);
 }
-
 @keyframes modalPop {
   from { opacity: 0; transform: scale(0.8); }
   to { opacity: 1; transform: scale(1); }
 }
-
 .modal-content h3 {
+  /* Checklist: Success message color */
   color: var(--success-color);
   margin-top: 0;
+  font-size: 1.5rem;
+}
+/* Checklist: Highlight receipt text */
+.receipt-info {
+  margin: 20px 0;
+  text-align: left;
+  border-top: 1px dashed var(--border-color);
+  border-bottom: 1px dashed var(--border-color);
+  padding: 20px 0;
+}
+.receipt-info p {
+  font-size: 1rem;
+  margin: 10px 0;
+  display: flex;
+  justify-content: space-between;
+}
+.receipt-info p strong {
+  color: var(--text-color);
+}
+.receipt-total {
+  font-size: 1.3rem !important;
+  font-weight: 700;
+}
+.receipt-total strong {
+  color: var(--heading-color) !important;
+}
+
+/* === Responsiveness (Checklist) === */
+@media (max-width: 768px) {
+  .navbar-container {
+    padding: 0 20px;
+  }
+  .navbar-logo {
+    font-size: 1.5rem;
+  }
+  .nav-links {
+    padding: 6px 10px;
+    font-size: 0.9rem;
+  }
+  .cart-indicator {
+    margin-left: 6px;
+  }
+  .page-container {
+    margin: 20px auto;
+    padding: 15px;
+  }
+  .product-list {
+    /* Checklist: 2 columns on tablet */
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+  .cart-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .cart-item-controls {
+    width: 100%;
+    justify-content: space-between;
+  }
+  .cart-total, .cart-actions {
+    text-align: center;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar-logo {
+    font-size: 1.3rem;
+  }
+  .nav-links {
+    font-size: 0.8rem;
+    padding: 4px 8px;
+  }
+  .product-list {
+    /* Checklist: 1 column on mobile */
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
 }

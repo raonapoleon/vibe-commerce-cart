@@ -16,7 +16,10 @@ const Navbar = () => {
         <ul className="nav-menu">
           <li className="nav-item">
             <Link to="/cart" className="nav-links">
-              Cart ({totalItems})
+              Cart
+              {totalItems > 0 && (
+                <span className="cart-indicator">{totalItems}</span>
+              )}
             </Link>
           </li>
         </ul>
