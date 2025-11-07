@@ -75,7 +75,10 @@ npm install
 # 3. Start the frontend app (it will open in your browser)
 npm start
 
-##  API Endpoints
+
+---
+
+## 📖 API Endpoints
 
 All routes are prefixed with `/api`.
 
@@ -84,6 +87,6 @@ All routes are prefixed with `/api`.
 | **GET** | `/products` | Get the list of all mock products. |
 | **GET** | `/cart` | Get all items in the persistent cart + total price. |
 | **POST** | `/cart` | Add a new item to the cart (or increment quantity). |
-| **PUT** | `/cart/item/:productId` | Update the specific quantity of an item in the cart. |
+| `PUT` | `/cart/item/:productId` | Update the specific quantity of an item in the cart. |
 | **DELETE** | `/cart/:id` | Remove an item from the cart (using the product ID). |
 | **POST** | `/checkout` | Process checkout, clear the cart, and return a mock receipt. |
